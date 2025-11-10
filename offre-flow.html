@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow : Optimiser les routines de ton équipe | bigxbang</title>
+    <meta name="description" content="3500€ pour connecter tes outils et fluidifier tes process. 3-5 automations interconnectées, formation des équipes, 3 mois de support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Lottie Player for animated icons -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --surface: rgba(20, 20, 30, 0.82);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.72);
+            --accent: #306EE8;
+            --accent-glow: rgba(48, 110, 232, 0.28);
+            --info-bg: rgba(48, 110, 232, 0.08);
+            --info-border: rgba(48, 110, 232, 0.25);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                linear-gradient(160deg, rgba(48, 110, 232, 0.1) 0%, rgba(17, 36, 92, 0.04) 42%, transparent 80%),
+                radial-gradient(ellipse at top, rgba(48, 110, 232, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at bottom right, rgba(25, 52, 118, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(22, 32, 68, 0.12) 0%, transparent 62%),
+                var(--bg-dark);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulance type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.045;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: soft-light;
+            background-size: 320px 320px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+
+        /* Header */
+        header {
+            padding: clamp(88px, 14vw, 140px) 0 clamp(56px, 10vw, 104px);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+            text-shadow: 0 0 16px rgba(48, 110, 232, 0.45);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 10px 22px;
+            background: rgba(48, 110, 232, 0.12);
+            border: 1px solid rgba(48, 110, 232, 0.28);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn 0.6s ease-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .badge:hover {
+            background: rgba(48, 110, 232, 0.2);
+            border-color: rgba(48, 110, 232, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.68) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Hero metrics */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(48, 110, 232, 0.08) 0%, rgba(48, 110, 232, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(48, 110, 232, 0.3);
+        }
+
+        .metric-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            font-family: 'Clash Display', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            padding: clamp(56px, 8vw, 80px) 0;
+            margin-bottom: 0;
+        }
+
+        .section h2,
+        .section h3 {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section h2 {
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            margin-bottom: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section h3 {
+            font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+            margin: 36px 0 18px;
+            font-weight: 600;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .icon-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 20%, rgba(48, 110, 232, 0.24) 0%, rgba(48, 110, 232, 0.08) 55%, transparent 100%);
+            box-shadow: 0 18px 36px rgba(48, 110, 232, 0.18);
+            padding: 10px;
+            flex-shrink: 0;
+        }
+
+        .icon-inline lottie-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            margin: 20px 0 20px 28px;
+            color: var(--text-muted);
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            line-height: 1.65;
+        }
+
+        .section strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--info-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 28px 0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(4px);
+            border-color: rgba(48, 110, 232, 0.8);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        /* Process steps */
+        .process-steps {
+            margin: 40px 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 36px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.75) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ffffff;
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.24);
+            margin-top: 3px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.22rem;
+            margin: 0 0 10px 0;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        /* Routines grid */
+        .routines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .routine-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .routine-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(48, 110, 232, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .routine-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .routine-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(48, 110, 232, 0.12);
+            border-radius: 12px;
+        }
+
+        .routine-icon lottie-player {
+            width: 32px;
+            height: 32px;
+        }
+
+        .routine-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .routine-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 48px 18px 36px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            gap: 12px;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, box-shadow;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 16px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        .btn-arrow {
+            position: absolute;
+            top: 50%;
+            right: -32px;
+            opacity: 0;
+            font-size: 1.1rem;
+            color: inherit;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-text {
+            display: inline-block;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 24px 44px rgba(48, 110, 232, 0.32);
+        }
+
+        .btn-primary:hover .btn-arrow {
+            right: 24px;
+            opacity: 1;
+        }
+
+        .btn-primary:hover .btn-text {
+            transform: translateX(-16px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(48, 110, 232, 0.5);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(48, 110, 232, 0.24);
+        }
+
+        .cta-inline {
+            display: inline-flex;
+            margin-top: 28px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(56px, 8vw, 88px);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 64px 0 40px;
+            }
+
+            .subtitle {
+                margin-bottom: 40px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 1.15rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .routines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://www.bigxbang.studio" class="back-link">← Retour à l'accueil</a>
+            <div class="badge">Flow · 3500€ · Le carton du moment</div>
+            <h1>Connecter tes outils et fluidifier tes routines</h1>
+            <p class="subtitle">Tes outils se parlent enfin. Tes rapports se génèrent automatiquement. Ton équipe respire.</p>
+
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">3-5</div>
+                    <div class="metric-label">Automations interconnectées</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">~15h</div>
+                    <div class="metric-label">Économisées par semaine</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3 mois</div>
+                    <div class="metric-label">Support inclus</div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Le problème -->
+            <section class="section" id="probleme">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Team.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Le problème
+                </h2>
+
+                <p>Tes outils ne communiquent pas entre eux. Tu as un CRM, un outil de gestion de projet, un système de facturation, des tableaux de suivi... mais tout est cloisonné. Résultat : ton équipe passe son temps à copier-coller des infos d'un outil à l'autre.</p>
+
+                <p><strong>C'est du temps perdu en coordination.</strong> Un client signe ? Il faut créer le projet dans Notion, l'ajouter au CRM, prévenir l'équipe sur Slack, générer la facture, mettre à jour le tableau de suivi. Cinq outils, quinze minutes, plusieurs personnes.</p>
+
+                <div class="info-box">
+                    <div class="info-box-title">Le coût réel de la fragmentation</div>
+                    <p>Quand tes outils ne se parlent pas, ce n'est pas juste une question de temps perdu. C'est aussi des oublis (le client pas ajouté au CRM), des incohérences (le statut pas à jour), et de la charge mentale pour ton équipe qui doit se rappeler de faire 10 actions après chaque événement.</p>
+                </div>
+
+                <h3>Les signaux que Flow est fait pour toi</h3>
+                <ul>
+                    <li>Tu as une équipe de 3 à 20 personnes qui jonglent entre plusieurs outils</li>
+                    <li>Certaines tâches nécessitent des allers-retours répétés entre tes systèmes</li>
+                    <li>Tu passes du temps à générer des rapports manuellement chaque semaine</li>
+                    <li>Ton équipe oublie régulièrement de mettre à jour certains outils</li>
+                </ul>
+
+                <p>Si tu coches au moins deux de ces cases, Flow est pour toi.</p>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- La solution -->
+            <section class="section" id="solution">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Cogs.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Comment on procède
+                </h2>
+
+                <p>On ne débarque pas avec un système clé en main. On part de ta réalité terrain. D'abord on discute, puis si ça colle, on vient observer comment ton équipe travaille, et ensuite on construit le système qui automatise ce qui doit l'être.</p>
+
+                <h3>Le process complet</h3>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Premier contact (30 min, visio)</h4>
+                            <p>On prend le temps de comprendre ton activité, tes outils actuels, ce qui coince. Je te présente l'offre Flow en détail, ce qu'il est possible de faire, et on voit ensemble si ça a du sens pour toi.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Validation et cadrage (30 min, visio)</h4>
+                            <p>Si on est alignés, on fait un second call pour valider le périmètre et les attentes. On s'assure qu'on parle de la même chose et qu'on peut bosser ensemble.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Immersion terrain (demi-journée sur place)</h4>
+                            <p>Je me déplace dans ta boîte (Nord, région parisienne ou lyonnaise). Je passe 3-4h avec ton équipe pour observer comment vous travaillez réellement : quels outils, quelles actions se répètent, où ça coince. Je pose des questions, je regarde les écrans, je comprends le terrain.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Cartographie et validation (1 semaine)</h4>
+                            <p>Je retourne au studio, je dessine la circulation des données entre tes outils, j'identifie les 3-5 routines à automatiser en priorité. Je te présente le système proposé, on ajuste ensemble, tu valides.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Construction du système (2-3 semaines)</h4>
+                            <p>Je développe les automations, je les connecte entre elles, je teste en conditions réelles. Dès qu'une automation est prête, je la déploie. On avance par itérations.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Formation et déploiement (1 journée sur place)</h4>
+                            <p>Je reviens dans ta boîte pour former ton équipe, expliquer comment fonctionne le système, répondre aux questions. On lance le tout ensemble, et je reste disponible pendant 3 mois pour ajuster.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Délai de livraison</div>
+                    <p>Entre 3 et 5 semaines selon la complexité des intégrations. On travaille de façon itérative : dès qu'une automation est prête, on la déploie et on passe à la suivante.</p>
+                </div>
+            </section>
+
+            <!-- Les routines optimisées -->
+            <section class="section" id="routines">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/wired-outline-1307-hub-network-hover-pinch.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Les routines qu'on optimise
+                </h2>
+
+                <p>Flow se concentre sur les routines collectives qui consomment du temps à plusieurs personnes. Voici les plus fréquentes :</p>
+
+                <div class="routines-grid">
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/email.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Relances clients</div>
+                        </div>
+                        <div class="routine-description">Relances automatiques selon le statut du projet, emails personnalisés, notifications Slack à l'équipe si pas de réponse après X jours.</div>
+                    </div>
+
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/Generation_document.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Briefs et documents</div>
+                        </div>
+                        <div class="routine-description">Génération automatique de briefs pré-remplis dès qu'un projet démarre, documents créés à partir de templates, infos du CRM injectées automatiquement.</div>
+                    </div>
+
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/Dashboard.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Rapports et tableaux de bord</div>
+                        </div>
+                        <div class="routine-description">Rapports hebdomadaires générés automatiquement, données consolidées depuis plusieurs sources, envoi par email ou Slack chaque lundi matin.</div>
+                    </div>
+
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/Factur.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Facturation et paiements</div>
+                        </div>
+                        <div class="routine-description">Factures générées automatiquement après livraison, envoi client, mise à jour du CRM et du tableau de trésorerie, relances de paiement programmées.</div>
+                    </div>
+
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/wired-outline-978-project-management-hover-pinch.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Gestion de projet</div>
+                        </div>
+                        <div class="routine-description">Création automatique de projets dans ton outil de gestion dès signature du devis, assignation des tâches selon les compétences de l'équipe, notifications aux bonnes personnes.</div>
+                    </div>
+
+                    <div class="routine-card">
+                        <div class="routine-header">
+                            <div class="routine-icon">
+                                <lottie-player src="icons/Conversation.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="routine-name">Communication interne</div>
+                        </div>
+                        <div class="routine-description">Notifications Slack/Teams selon les événements (nouveau client, projet livré, paiement reçu), messages personnalisés aux bonnes personnes, canaux automatiquement créés par projet.</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Exemples concrets par secteur</div>
+                    <p><strong>Agence de design</strong> : Nouveau projet signé → Création automatique du projet dans Notion + brief pré-rempli + canal Slack créé + assignation du designer disponible + facture d'acompte générée.<br><br>
+                    <strong>Studio de développement</strong> : Livraison validée par le client → Facture finale envoyée + projet archivé + rapport de temps consolidé + mise à jour du portfolio + notification équipe sur Slack.<br><br>
+                    <strong>Cabinet de conseil</strong> : Chaque lundi 9h → Rapport hebdomadaire généré (projets en cours, CA du mois, taux de conversion) + envoyé par email + posté sur Slack.<br><br>
+                    <strong>E-commerce</strong> : Commande passée → Création de la fiche dans ton système logistique + notification équipe préparation + email de confirmation client + mise à jour du stock + création automatique de l'étiquette d'expédition.<br><br>
+                    <strong>Centre de formation</strong> : Inscription validée → Ajout du stagiaire au CRM + envoi du livret d'accueil + création du dossier administratif + notification du formateur + envoi du lien visio + rappels automatiques J-7 et J-1.<br><br>
+                    <strong>Cabinet comptable</strong> : Nouveau client → Création du dossier dans ton logiciel métier + checklist des documents à recevoir + email automatique au client avec la liste + suivi des relances + notification associé responsable.<br><br>
+                    <strong>Agence immobilière</strong> : Nouveau bien → Création de l'annonce sur tous les portails + génération des visuels réseaux sociaux + ajout au CRM + notification de l'équipe commerciale + programmation des relances propriétaire.<br><br>
+                    <strong>Entreprise BTP</strong> : Devis signé → Création du chantier dans ton planning + commande automatique des matériaux auprès des fournisseurs + briefing équipe technique + mise à jour du tableau de trésorerie.<br><br>
+                    <strong>SaaS B2B</strong> : Nouveau lead qualifié → Ajout au CRM + séquence d'emails automatique + notification du commercial assigné + création de la fiche entreprise enrichie (Pappers/LinkedIn) + tracking du comportement sur le site.<br><br>
+                    <strong>Restaurant/Traiteur</strong> : Réservation reçue → Ajout au planning + email de confirmation client + création de la fiche cuisine + gestion des allergies/régimes + rappel J-1 + demande d'avis post-prestation.<br><br>
+                    <strong>Cabinet d'architectes</strong> : Projet validé → Création dossier dans ton système de gestion + génération du planning prévisionnel + assignation des ressources + notification des intervenants + suivi automatique des jalons.</p>
+                </div>
+            </section>
+
+            <!-- Ce que tu obtiens -->
+            <section class="section" id="livrables">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Checklist.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Ce que tu obtiens concrètement
+                </h2>
+
+                <h3>3 à 5 automations interconnectées</h3>
+                <p>Un système où tes outils se parlent. Pas des automations isolées, mais un flux cohérent : une action dans un outil déclenche automatiquement des mises à jour dans plusieurs autres. Le tout tourne en production dès le jour de la livraison.</p>
+
+                <h3>Formation des équipes</h3>
+                <p>On forme ton équipe pour qu'elle comprenne le système, sache où regarder quand quelque chose se passe, et puisse faire des ajustements simples. Session de formation collective + documentation accessible.</p>
+
+                <h3>3 mois de support inclus</h3>
+                <p>Si une automation plante, si un outil change son API, si vous voulez ajuster une condition : on est là. Pendant 90 jours, on corrige, on ajuste, on optimise sans frais supplémentaires.</p>
+
+                <h3>Documentation complète du système</h3>
+                <p>Un document qui cartographie tout le système : quels outils sont connectés, quels événements déclenchent quoi, où regarder en cas de problème. Accessible à toute l'équipe.</p>
+
+                <h3>Accès prioritaire pour évolutions futures</h3>
+                <p>Si tu veux ajouter de nouvelles automations après les 3 mois, tu as un accès prioritaire (pas besoin d'attendre 3 semaines) et un tarif préférentiel sur les évolutions.</p>
+            </section>
+
+            <!-- Pour qui -->
+            <section class="section" id="pour-qui">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Target.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Pour qui c'est fait
+                </h2>
+
+                <p>Flow est conçu pour les équipes de 3 à 20 personnes qui commencent à sentir les limites de leur organisation manuelle.</p>
+
+                <h3>Tu es au bon endroit si :</h3>
+                <ul>
+                    <li>Vous êtes une équipe de 3 à 20 personnes</li>
+                    <li>Vous utilisez déjà plusieurs outils SaaS (CRM, gestion de projet, facturation...)</li>
+                    <li>Certaines personnes passent du temps à coordonner les infos entre ces outils</li>
+                    <li>Vous avez des process qui fonctionnent, mais qui ne sont pas automatisés</li>
+                    <li>Vous voulez scaler sans embaucher quelqu'un juste pour faire de la coordination</li>
+                </ul>
+
+                <h3>Flow n'est pas fait pour toi si :</h3>
+                <ul>
+                    <li>Tu travailles seul et tu as juste besoin d'automatiser une tâche (va voir <a href="offre-reset.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Reset</a>)</li>
+                    <li>Tu veux une refonte complète de ton infrastructure tech (va voir <a href="offre-expansion.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Expansion</a>)</li>
+                    <li>Tes process ne sont pas encore stabilisés (Flow automatise ce qui existe déjà, pas ce qui est flou)</li>
+                </ul>
+            </section>
+
+            <!-- Les résultats -->
+            <section class="section" id="resultats">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Success.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Les résultats attendus
+                </h2>
+
+                <h3>Avant Flow</h3>
+                <ul>
+                    <li>Ton équipe passe 1-2h par jour à copier-coller des infos entre les outils</li>
+                    <li>Les oublis sont fréquents (CRM pas à jour, client pas prévenu, rapport pas envoyé)</li>
+                    <li>Chaque événement (nouveau client, projet livré) nécessite une checklist mentale de 10 actions</li>
+                    <li>Les nouveaux membres de l'équipe mettent des semaines à comprendre qui fait quoi</li>
+                </ul>
+
+                <h3>Après Flow</h3>
+                <ul>
+                    <li>Les infos circulent automatiquement entre tes outils, 0 copier-coller</li>
+                    <li>Les actions sont systématiques, plus d'oublis</li>
+                    <li>Un événement déclenche automatiquement toutes les actions nécessaires</li>
+                    <li>Les nouveaux comprennent le système en 30 minutes grâce à la documentation</li>
+                </ul>
+
+                <div class="info-box">
+                    <div class="info-box-title">Ce que tu fais avec le temps récupéré</div>
+                    <p>15h par semaine récupérées collectivement, c'est l'équivalent de 2 jours de travail. Ce temps peut être réinvesti sur du conseil client, du développement produit, ou simplement permettre à ton équipe de finir plus tôt et de respirer.</p>
+                </div>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA final -->
+            <section class="cta-section section" id="contact">
+                <img src="icons/Logo.svg" alt="bigxbang" style="width: auto; height: 180px; margin-bottom: 40px; filter: drop-shadow(0 10px 32px rgba(48, 110, 232, 0.25));">
+                <p class="subtitle">On automatise les tâches répétitives pour libérer ce qui fait de toi un humain : penser, créer, décider.</p>
+
+                <div class="cta-buttons">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                    <a href="https://www.bigxbang.studio" class="btn btn-secondary">
+                        <span class="btn-text">Retour à l'accueil</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lottieIcons = document.querySelectorAll('lottie-player');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const supportsIntersectionObserver = 'IntersectionObserver' in window;
+
+            lottieIcons.forEach(icon => {
+                icon.removeAttribute('loop');
+                icon.removeAttribute('autoplay');
+                if (typeof icon.load === 'function') {
+                    icon.load(icon.src);
+                }
+                if (typeof icon.stop === 'function') {
+                    icon.stop();
+                }
+            });
+
+            const cardIcons = document.querySelectorAll('.routine-card lottie-player');
+            cardIcons.forEach(icon => {
+                const card = icon.closest('.routine-card');
+                if (!card) return;
+
+                const startAnimation = () => {
+                    icon.stop();
+                    icon.play();
+                };
+
+                const resetAnimation = () => {
+                    icon.stop();
+                    if (typeof icon.seek === 'function') {
+                        icon.seek('0');
+                    }
+                };
+
+                card.addEventListener('mouseenter', startAnimation);
+                card.addEventListener('mouseleave', resetAnimation);
+                card.addEventListener('focusin', startAnimation);
+                card.addEventListener('focusout', resetAnimation);
+            });
+
+            if (prefersReducedMotion || !supportsIntersectionObserver) {
+                return;
+            }
+
+            const iconsToObserve = Array.from(lottieIcons).filter(icon => !icon.closest('.routine-card'));
+
+            const iconObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const player = entry.target;
+                        player.play();
+                        observer.unobserve(player);
+                    }
+                });
+            }, {
+                threshold: 0.6,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            iconsToObserve.forEach(icon => iconObserver.observe(icon));
+        });
+
+        // Parallax subtil sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollY = window.scrollY;
+
+            if (header && scrollY < 500) {
+                header.style.transform = `translateY(${scrollY * 0.3}px)`;
+                header.style.opacity = 1 - (scrollY / 500);
+            }
+        });
+    </script>
+</body>
+</html>

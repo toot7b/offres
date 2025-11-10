@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset : Automatiser une tâche répétitive | bigxbang</title>
+    <meta name="description" content="1500€ pour te débarrasser d'une tâche répétitive qui te bouffe du temps. 1 automation déployée, formation complète, 1 mois de support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Lottie Player for animated icons -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --surface: rgba(20, 20, 30, 0.82);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.72);
+            --accent: #306EE8;
+            --accent-glow: rgba(48, 110, 232, 0.28);
+            --info-bg: rgba(48, 110, 232, 0.08);
+            --info-border: rgba(48, 110, 232, 0.25);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                linear-gradient(160deg, rgba(48, 110, 232, 0.1) 0%, rgba(17, 36, 92, 0.04) 42%, transparent 80%),
+                radial-gradient(ellipse at top, rgba(48, 110, 232, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at bottom right, rgba(25, 52, 118, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(22, 32, 68, 0.12) 0%, transparent 62%),
+                var(--bg-dark);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.045;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: soft-light;
+            background-size: 320px 320px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+
+        /* Header */
+        header {
+            padding: clamp(88px, 14vw, 140px) 0 clamp(56px, 10vw, 104px);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+            text-shadow: 0 0 16px rgba(48, 110, 232, 0.45);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 10px 22px;
+            background: rgba(48, 110, 232, 0.12);
+            border: 1px solid rgba(48, 110, 232, 0.28);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn 0.6s ease-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .badge:hover {
+            background: rgba(48, 110, 232, 0.2);
+            border-color: rgba(48, 110, 232, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.68) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Hero metrics */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(48, 110, 232, 0.08) 0%, rgba(48, 110, 232, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(48, 110, 232, 0.3);
+        }
+
+        .metric-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            font-family: 'Clash Display', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            padding: clamp(56px, 8vw, 80px) 0;
+            margin-bottom: 0;
+        }
+
+        .section h2,
+        .section h3 {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section h2 {
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            margin-bottom: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section h3 {
+            font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+            margin: 36px 0 18px;
+            font-weight: 600;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .icon-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 20%, rgba(48, 110, 232, 0.24) 0%, rgba(48, 110, 232, 0.08) 55%, transparent 100%);
+            box-shadow: 0 18px 36px rgba(48, 110, 232, 0.18);
+            padding: 10px;
+            flex-shrink: 0;
+        }
+
+        .icon-inline lottie-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            margin: 20px 0 20px 28px;
+            color: var(--text-muted);
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            line-height: 1.65;
+        }
+
+        .section strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--info-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 28px 0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(4px);
+            border-color: rgba(48, 110, 232, 0.8);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        /* Process steps */
+        .process-steps {
+            margin: 40px 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 36px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.75) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ffffff;
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.24);
+            margin-top: 3px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.22rem;
+            margin: 0 0 10px 0;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 48px 18px 36px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            gap: 12px;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, box-shadow;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 16px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        .btn-arrow {
+            position: absolute;
+            top: 50%;
+            right: -32px;
+            opacity: 0;
+            font-size: 1.1rem;
+            color: inherit;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-text {
+            display: inline-block;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 24px 44px rgba(48, 110, 232, 0.32);
+        }
+
+        .btn-primary:hover .btn-arrow {
+            right: 24px;
+            opacity: 1;
+        }
+
+        .btn-primary:hover .btn-text {
+            transform: translateX(-16px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(48, 110, 232, 0.5);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(48, 110, 232, 0.24);
+        }
+
+        .cta-inline {
+            display: inline-flex;
+            margin-top: 28px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(56px, 8vw, 88px);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 64px 0 40px;
+            }
+
+            .subtitle {
+                margin-bottom: 40px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 1.15rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://www.bigxbang.studio" class="back-link">← Retour à l'accueil</a>
+            <div class="badge">Reset · 1500€</div>
+            <h1>Automatiser une tâche répétitive qui te fait perdre du temps</h1>
+            <p class="subtitle">Une seule automation. Bien ciblée. Bien déployée. Pour libérer du temps et reprendre le contrôle.</p>
+
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">1</div>
+                    <div class="metric-label">Automation déployée</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">~5h</div>
+                    <div class="metric-label">Économisées par semaine</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">1 mois</div>
+                    <div class="metric-label">Support inclus</div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Le problème -->
+            <section class="section" id="probleme">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/User.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Le problème
+                </h2>
+
+                <p>Tu passes du temps sur une tâche qui se répète. Toujours la même séquence. Copier-coller des données d'un outil à l'autre. Envoyer le même email après chaque vente. Mettre à jour un tableau quand quelque chose bouge. Générer un rapport tous les lundis.</p>
+
+                <p><strong>C'est du temps qui ne crée rien.</strong> Juste de la maintenance. Et au bout de 6 mois, tu réalises que tu as passé des dizaines d'heures sur une tâche qu'un script pourrait faire en 10 secondes.</p>
+
+                <div class="info-box">
+                    <div class="info-box-title">Le coût caché d'une tâche répétitive</div>
+                    <p>Ce n'est pas juste le temps passé sur la tâche elle-même. C'est aussi la charge mentale de devoir y penser, le risque d'oubli, et le temps de re-concentration après chaque interruption. Une tâche automatisée, c'est une tâche qui disparaît complètement de ton radar.</p>
+                </div>
+
+                <h3>Les signaux que Reset est fait pour toi</h3>
+                <ul>
+                    <li>Tu fais la même tâche plusieurs fois par semaine (ou par jour)</li>
+                    <li>Cette tâche suit toujours la même logique (si X, alors Y)</li>
+                    <li>Tu te dis régulièrement "il doit y avoir moyen d'automatiser ça"</li>
+                    <li>Tu perds du temps à jongler entre plusieurs outils pour une seule action</li>
+                </ul>
+
+                <p>Si tu coches au moins deux de ces cases, Reset est pour toi.</p>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- La solution -->
+            <section class="section" id="solution">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/wired-outline-39-cog-hover-mechanic.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Comment on procède
+                </h2>
+
+                <p>On ne débarque pas avec une solution toute faite. On part de ton terrain. On observe comment tu fonctionnes. On identifie LA tâche qui te bouffe le plus de temps. Et on construit le système qui la fait disparaître.</p>
+
+                <h3>La méthode en 3 étapes</h3>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>On observe le réel</h4>
+                            <p>Un appel de 30-45 minutes pour comprendre ton process. Quels outils tu utilises, comment circulent les données, où ça bloque. On regarde ce qui se répète et ce qui pourrait tourner tout seul.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>On met de l'ordre</h4>
+                            <p>On cartographie la tâche à automatiser. Les déclencheurs, les actions, les conditions. On identifie les outils à connecter et on valide la logique avec toi avant de coder quoi que ce soit.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>On construit le système</h4>
+                            <p>On développe l'automation, on la teste en conditions réelles, on corrige ce qui ne marche pas. Puis on te forme pour que tu comprennes comment ça fonctionne et que tu puisses l'ajuster si besoin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Délai de livraison</div>
+                    <p>Entre 5 et 10 jours selon la complexité de l'automation. On reste en contact tout au long du process pour valider chaque étape.</p>
+                </div>
+            </section>
+
+            <!-- Ce que tu obtiens -->
+            <section class="section" id="livrables">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Checklist.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Ce que tu obtiens concrètement
+                </h2>
+
+                <h3>1 automation déployée et fonctionnelle</h3>
+                <p>Pas un prototype. Pas un "proof of concept". Un système qui tourne en production et qui fait le job. Connecté à tes outils réels, testé sur des cas réels, prêt à économiser du temps dès le premier jour.</p>
+
+                <h3>Formation complète</h3>
+                <p>On t'explique comment fonctionne l'automation, comment la surveiller, et comment la modifier si ton process évolue. Tu n'es pas dépendant de nous pour chaque petit ajustement.</p>
+
+                <h3>1 mois de support inclus</h3>
+                <p>Si quelque chose plante, si tu veux ajuster une condition, si un outil change son API : on est là. Pendant 30 jours, on corrige ce qui doit l'être sans frais supplémentaires.</p>
+
+                <h3>Documentation claire</h3>
+                <p>Un document qui explique la logique de l'automation, les outils connectés, et les points d'attention. Si tu veux comprendre ce qui se passe sous le capot, tout est documenté.</p>
+
+                <div class="info-box">
+                    <div class="info-box-title">Exemples d'automations Reset</div>
+                    <p><strong>Freelance</strong> : Automatisation de l'envoi de factures après paiement Stripe + mise à jour du CRM.<br><br>
+                    <strong>E-commerce</strong> : Synchronisation automatique des stocks entre Shopify et un tableur Google Sheets partagé avec les fournisseurs.<br><br>
+                    <strong>Agence</strong> : Création automatique d'un projet Notion + brief pré-rempli dès qu'un client signe sur un outil de signature électronique.</p>
+                </div>
+            </section>
+
+            <!-- Pour qui -->
+            <section class="section" id="pour-qui">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Target.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Pour qui c'est fait
+                </h2>
+
+                <p>Reset est conçu pour les freelances, TPE et petites équipes qui veulent tester l'automation sans se lancer dans une refonte complète de leur infrastructure.</p>
+
+                <h3>Tu es au bon endroit si :</h3>
+                <ul>
+                    <li>Tu travailles seul ou en petite équipe (1-5 personnes)</li>
+                    <li>Tu as identifié une tâche répétitive précise qui te fait perdre du temps</li>
+                    <li>Tu veux découvrir ce que l'automation peut t'apporter sans investir 10k€ d'entrée</li>
+                    <li>Tu utilises des outils SaaS standards (Notion, Airtable, Google Sheets, Stripe, etc.)</li>
+                </ul>
+
+                <h3>Reset n'est pas fait pour toi si :</h3>
+                <ul>
+                    <li>Tu cherches à automatiser 10 tâches d'un coup (va voir <a href="offre-flow.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Flow</a>)</li>
+                    <li>Tu veux une refonte complète de ton infrastructure tech (va voir <a href="offre-expansion.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Expansion</a>)</li>
+                    <li>Tu as des outils legacy qui nécessitent des intégrations complexes</li>
+                </ul>
+            </section>
+
+            <!-- Les résultats -->
+            <section class="section" id="resultats">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Success.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Les résultats attendus
+                </h2>
+
+                <h3>Avant Reset</h3>
+                <ul>
+                    <li>Tu passes 5-20 minutes plusieurs fois par semaine sur la même tâche</li>
+                    <li>Tu oublies parfois de le faire (mail non envoyé, tableau pas à jour)</li>
+                    <li>Tu dois jongler entre plusieurs onglets et outils</li>
+                    <li>Ça te coupe dans ton flow de travail</li>
+                </ul>
+
+                <h3>Après Reset</h3>
+                <ul>
+                    <li>La tâche se fait automatiquement en quelques secondes</li>
+                    <li>0 risque d'oubli (c'est systématique)</li>
+                    <li>Tes outils communiquent sans que tu aies à intervenir</li>
+                    <li>Tu récupères du temps pour ce qui compte vraiment</li>
+                </ul>
+
+                <div class="info-box">
+                    <div class="info-box-title">Ce que tu fais avec le temps récupéré</div>
+                    <p>Le temps économisé n'est pas le vrai gain. Le vrai gain, c'est ce que tu fais avec : développer ton offre, passer plus de temps sur tes clients stratégiques, ou simplement finir ta journée plus tôt. L'automation libère du temps pour ce qui compte.</p>
+                </div>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA final -->
+            <section class="cta-section section" id="contact">
+                <img src="icons/Logo.svg" alt="bigxbang" style="width: auto; height: 180px; margin-bottom: 40px; filter: drop-shadow(0 10px 32px rgba(48, 110, 232, 0.25));">
+                <p class="subtitle">On automatise les tâches répétitives pour libérer ce qui fait de toi un humain : penser, créer, décider.</p>
+
+                <div class="cta-buttons">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                    <a href="https://www.bigxbang.studio" class="btn btn-secondary">
+                        <span class="btn-text">Retour à l'accueil</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lottieIcons = document.querySelectorAll('lottie-player');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const supportsIntersectionObserver = 'IntersectionObserver' in window;
+
+            lottieIcons.forEach(icon => {
+                icon.removeAttribute('loop');
+                icon.removeAttribute('autoplay');
+                if (typeof icon.load === 'function') {
+                    icon.load(icon.src);
+                }
+                if (typeof icon.stop === 'function') {
+                    icon.stop();
+                }
+            });
+
+            if (prefersReducedMotion || !supportsIntersectionObserver) {
+                return;
+            }
+
+            const iconObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const player = entry.target;
+                        player.play();
+                        observer.unobserve(player);
+                    }
+                });
+            }, {
+                threshold: 0.6,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            lottieIcons.forEach(icon => iconObserver.observe(icon));
+        });
+
+        // Parallax subtil sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollY = window.scrollY;
+
+            if (header && scrollY < 500) {
+                header.style.transform = `translateY(${scrollY * 0.3}px)`;
+                header.style.opacity = 1 - (scrollY / 500);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansion : Refonte complète de ton infrastructure tech & IA | bigxbang</title>
+    <meta name="description" content="9000-15000€ pour transformer ton infrastructure. Audit stratégique, refonte complète, IA intégrée, formation équipe, 6 mois de support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Lottie Player for animated icons -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --surface: rgba(20, 20, 30, 0.82);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.72);
+            --accent: #306EE8;
+            --accent-glow: rgba(48, 110, 232, 0.28);
+            --info-bg: rgba(48, 110, 232, 0.08);
+            --info-border: rgba(48, 110, 232, 0.25);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                linear-gradient(160deg, rgba(48, 110, 232, 0.1) 0%, rgba(17, 36, 92, 0.04) 42%, transparent 80%),
+                radial-gradient(ellipse at top, rgba(48, 110, 232, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at bottom right, rgba(25, 52, 118, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(22, 32, 68, 0.12) 0%, transparent 62%),
+                var(--bg-dark);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.045;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: soft-light;
+            background-size: 320px 320px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+
+        /* Header */
+        header {
+            padding: clamp(88px, 14vw, 140px) 0 clamp(56px, 10vw, 104px);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+            text-shadow: 0 0 16px rgba(48, 110, 232, 0.45);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 10px 22px;
+            background: rgba(48, 110, 232, 0.12);
+            border: 1px solid rgba(48, 110, 232, 0.28);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn 0.6s ease-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .badge:hover {
+            background: rgba(48, 110, 232, 0.2);
+            border-color: rgba(48, 110, 232, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.68) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Hero metrics */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(48, 110, 232, 0.08) 0%, rgba(48, 110, 232, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(48, 110, 232, 0.3);
+        }
+
+        .metric-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            font-family: 'Clash Display', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            padding: clamp(56px, 8vw, 80px) 0;
+            margin-bottom: 0;
+        }
+
+        .section h2,
+        .section h3 {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section h2 {
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            margin-bottom: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section h3 {
+            font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+            margin: 36px 0 18px;
+            font-weight: 600;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .icon-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 20%, rgba(48, 110, 232, 0.24) 0%, rgba(48, 110, 232, 0.08) 55%, transparent 100%);
+            box-shadow: 0 18px 36px rgba(48, 110, 232, 0.18);
+            padding: 10px;
+            flex-shrink: 0;
+        }
+
+        .icon-inline lottie-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            margin: 20px 0 20px 28px;
+            color: var(--text-muted);
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            line-height: 1.65;
+        }
+
+        .section strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--info-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 28px 0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(4px);
+            border-color: rgba(48, 110, 232, 0.8);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        /* Process steps */
+        .process-steps {
+            margin: 40px 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 36px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(48, 110, 232, 0.75) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ffffff;
+            box-shadow: 0 14px 32px rgba(48, 110, 232, 0.24);
+            margin-top: 3px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.22rem;
+            margin: 0 0 10px 0;
+            font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        /* Pillars grid */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(48, 110, 232, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(48, 110, 232, 0.12);
+            border-radius: 12px;
+        }
+
+        .pillar-icon lottie-player {
+            width: 32px;
+            height: 32px;
+        }
+
+        .pillar-name {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+
+        .pillar-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .pillar-examples {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 48px 18px 36px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            gap: 12px;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, box-shadow;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 16px 32px rgba(48, 110, 232, 0.22);
+        }
+
+        .btn-arrow {
+            position: absolute;
+            top: 50%;
+            right: -32px;
+            opacity: 0;
+            font-size: 1.1rem;
+            color: inherit;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-text {
+            display: inline-block;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 24px 44px rgba(48, 110, 232, 0.32);
+        }
+
+        .btn-primary:hover .btn-arrow {
+            right: 24px;
+            opacity: 1;
+        }
+
+        .btn-primary:hover .btn-text {
+            transform: translateX(-16px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(48, 110, 232, 0.5);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(48, 110, 232, 0.24);
+        }
+
+        .cta-inline {
+            display: inline-flex;
+            margin-top: 28px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(56px, 8vw, 88px);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 64px 0 40px;
+            }
+
+            .subtitle {
+                margin-bottom: 40px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 1.15rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://www.bigxbang.studio" class="back-link">← Retour à l'accueil</a>
+            <div class="badge">Expansion · 9000-15000€</div>
+            <h1>Repenser ton infrastructure tech et IA de fond en comble</h1>
+            <p class="subtitle">Un écosystème complet. Audit stratégique, refonte de l'infrastructure, IA intégrée. Pour scaler proprement.</p>
+
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Infrastructure repensée</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">8-12</div>
+                    <div class="metric-label">Semaines de mission</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">6 mois</div>
+                    <div class="metric-label">Support inclus</div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Le problème -->
+            <section class="section" id="probleme">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/wired-outline-978-project-management-hover-pinch.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Le problème
+                </h2>
+
+                <p>Ton infrastructure tech est devenue un patchwork. Des outils ajoutés au fil du temps, des automations qui tiennent avec du scotch, des process qui ne scalent plus. Tu sens que ça craque. Chaque nouvelle personne dans l'équipe met des semaines à comprendre comment ça fonctionne.</p>
+
+                <p><strong>L'IA n'est pas exploitée.</strong> Tu sais qu'il y a des gains énormes à faire, mais tu ne sais pas par où commencer. Tu as testé ChatGPT, mais ce n'est pas intégré dans ton workflow. Résultat : ton équipe continue à bosser comme avant, en laissant de la valeur sur la table.</p>
+
+                <div class="info-box">
+                    <div class="info-box-title">Le coût de l'infrastructure obsolète</div>
+                    <p>Une infrastructure qui n'est plus adaptée, ce n'est pas juste une question de productivité. C'est un frein à la croissance. Tu ne peux pas embaucher sans former pendant des semaines. Tu ne peux pas lancer de nouveaux services sans tout casser. Et ton équipe passe son temps à contourner les limitations au lieu de créer de la valeur.</p>
+                </div>
+
+                <h3>Les signaux qu'Expansion est fait pour toi</h3>
+                <ul>
+                    <li>Ton entreprise a entre 10 et 50 personnes et tu veux scaler</li>
+                    <li>Ton infrastructure tech actuelle est devenue un frein à la croissance</li>
+                    <li>Tu sens que l'IA pourrait te faire gagner énormément, mais tu ne sais pas comment l'intégrer</li>
+                    <li>Former un nouveau membre de l'équipe prend plusieurs semaines</li>
+                    <li>Tu as des outils qui ne communiquent pas et des automations artisanales qui plantent régulièrement</li>
+                </ul>
+
+                <p>Si tu coches au moins trois de ces cases, Expansion est pour toi.</p>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- La solution -->
+            <section class="section" id="solution">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Rocket.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Comment on procède
+                </h2>
+
+                <p>Expansion, c'est une mission de transformation complète. On ne patche pas, on repense. On part de ton ambition business, on audite tout ce qui existe, et on construit un écosystème tech et IA qui te permet de scaler sans te faire exploser.</p>
+
+                <h3>Le process complet</h3>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Premier contact (45 min, visio)</h4>
+                            <p>On discute de ton ambition business, de ce qui bloque aujourd'hui, de ce que tu imagines pour les 2-3 prochaines années. Je te présente l'offre Expansion et on voit si ça colle à ton besoin.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Cadrage de la mission (1h, visio)</h4>
+                            <p>Si on est alignés, on fait un second call pour valider le périmètre, les délais, et poser les bases. On s'assure qu'on parle de la même chose.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Audit stratégique (1 semaine sur place)</h4>
+                            <p>Je passe une semaine complète dans ta boîte (Nord, région parisienne ou lyonnaise). J'observe comment travaillent tes équipes, j'analyse ton infrastructure existante, j'identifie les points de friction, et je cartographie tous les flux de données. Interviews individuelles, observation terrain, analyse technique.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Recommandations stratégiques (2 semaines)</h4>
+                            <p>Je retourne au studio pour analyser tout ce que j'ai observé. Je conçois la nouvelle architecture : quels outils garder, lesquels remplacer, comment intégrer l'IA de façon systémique, quelles automations prioritaires. Je te présente un plan détaillé avec roadmap et arbitrages à faire.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Validation et ajustements (1 semaine)</h4>
+                            <p>On passe en revue le plan ensemble, tu challenges, on ajuste. On s'assure que ce qui est proposé est réaliste et aligné avec ton ambition. Tu valides, on lance.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Construction du système (6-8 semaines)</h4>
+                            <p>Je développe la nouvelle infrastructure : connexion des outils, création des automations, intégration de l'IA dans les process clés, migration des données. On avance par sprints de 2 semaines, tu valides chaque étape avant de passer à la suivante.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Formation et déploiement (2 semaines sur place)</h4>
+                            <p>Je reviens dans ta boîte pour déployer le système, former tes équipes, documenter tout, et m'assurer que ça tourne. Formation par métier, documentation complète, accompagnement au changement.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">8</div>
+                        <div class="step-content">
+                            <h4>Support et optimisation (6 mois)</h4>
+                            <p>Pendant 6 mois, je reste disponible pour corriger ce qui plante, ajuster ce qui ne colle pas, optimiser ce qui peut l'être. Appels de suivi mensuels, hotline prioritaire, évolutions incluses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Délai total</div>
+                    <p>Comptez entre 8 et 12 semaines de la signature au déploiement complet, selon la taille de ton infrastructure actuelle et la complexité des intégrations. On travaille de façon itérative pour que tu valides chaque étape.</p>
+                </div>
+            </section>
+
+            <!-- Les 4 piliers -->
+            <section class="section" id="piliers">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/wired-outline-746-technology-integrated-circuits-hover-pinch.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Les 4 piliers d'Expansion
+                </h2>
+
+                <p>Expansion repose sur 4 piliers complémentaires. Chacun est essentiel pour construire une infrastructure qui tient la route.</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <lottie-player src="icons/wired-outline-19-magnifier-zoom-search-hover-spin.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="pillar-name">1. Audit stratégique</div>
+                        </div>
+                        <div class="pillar-description">
+                            On ne construit rien avant d'avoir compris ton business, tes ambitions, et tes contraintes réelles. L'audit terrain révèle ce qui ne fonctionne pas, ce qui pourrait être optimisé, et ce qui doit être reconstruit.
+                        </div>
+                        <div class="pillar-examples">
+                            Analyse des flux, interviews équipes, cartographie des outils, identification des freins, recommandations priorisées.
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <lottie-player src="icons/wired-outline-1307-hub-network-hover-pinch.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="pillar-name">2. Refonte infrastructure</div>
+                        </div>
+                        <div class="pillar-description">
+                            On reconstruit ton écosystème tech. Nouveaux outils si nécessaire, connexions entre les systèmes, automations robustes, architecture scalable. Tout est pensé pour durer et évoluer avec toi.
+                        </div>
+                        <div class="pillar-examples">
+                            Stack tech optimisée, intégrations API, automations avancées, migration de données, documentation système.
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <lottie-player src="icons/AI.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="pillar-name">3. Intégration systémique de l'IA</div>
+                        </div>
+                        <div class="pillar-description">
+                            L'IA n'est pas un gadget. On l'intègre là où elle apporte de la valeur : génération de contenus, analyse de données, support client, enrichissement automatique. L'IA travaille pour toi, pas l'inverse.
+                        </div>
+                        <div class="pillar-examples">
+                            Génération automatique de documents, analyse prédictive, chatbots contextuels, enrichissement de fiches, résumés automatiques.
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <lottie-player src="icons/Team.json" background="transparent" speed="1"></lottie-player>
+                            </div>
+                            <div class="pillar-name">4. Formation et adoption</div>
+                        </div>
+                        <div class="pillar-description">
+                            Un système qui n'est pas adopté par l'équipe est un système mort. On forme tes équipes, on documente tout, on accompagne le changement. L'objectif : qu'ils comprennent, qu'ils utilisent, et qu'ils deviennent autonomes.
+                        </div>
+                        <div class="pillar-examples">
+                            Formation par métier, documentation détaillée, tutoriels vidéo, accompagnement au changement, sessions Q&A.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exemples sectoriels -->
+            <section class="section" id="exemples">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Target.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Exemples concrets par secteur
+                </h2>
+
+                <p>Expansion s'adapte à ton métier. Voici des transformations qu'on a accompagnées :</p>
+
+                <div class="info-box">
+                    <div class="info-box-title">Agence de marketing (18 personnes)</div>
+                    <p><strong>Avant :</strong> Outils fragmentés, process différents selon les chefs de projet, reporting manuel, IA non exploitée.<br><br>
+                    <strong>Après :</strong> Écosystème unifié (Notion + HubSpot + Slack + Make), génération automatique des briefs et comptes-rendus par IA, reporting en temps réel, onboarding nouveau client en 5 minutes au lieu de 2h. Résultat : capacité à gérer 2x plus de clients avec la même équipe.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">SaaS B2B (32 personnes)</div>
+                    <p><strong>Avant :</strong> Lead management artisanal, support client surchargé, données éparpillées, pas de prédictif.<br><br>
+                    <strong>Après :</strong> Pipeline sales automatisé avec scoring IA, chatbot de support niveau 1 qui résout 60% des tickets, tableaux de bord prédictifs, séquences d'emails adaptatives. Résultat : taux de conversion +40%, tickets support -60%, visibilité business en temps réel.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Cabinet de conseil (12 personnes)</div>
+                    <p><strong>Avant :</strong> Process de production de livrables manuels, temps passé énorme sur la mise en forme, pas de capitalisation.<br><br>
+                    <strong>Après :</strong> Bibliothèque de templates intelligents, génération automatique de rapports avec IA (analyse données + rédaction), base de connaissances centralisée, process de production divisé par 3. Résultat : focus sur le conseil, moins de temps sur la production.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">E-commerce (25 personnes)</div>
+                    <p><strong>Avant :</strong> Gestion stock manuelle, service client débordé, pas de personnalisation, logistique chaotique.<br><br>
+                    <strong>Après :</strong> Stock synchronisé en temps réel, chatbot qui gère 70% des demandes, recommandations produits par IA, automatisation complète de la chaîne logistique (commande → préparation → expédition). Résultat : capacité à gérer 3x le volume de commandes.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Centre de formation (15 personnes)</div>
+                    <p><strong>Avant :</strong> Gestion administrative lourde, suivi stagiaires complexe, communication fragmentée, contenus statiques.<br><br>
+                    <strong>Après :</strong> Plateforme centralisée de gestion (inscriptions → facturation → suivi → certificats), contenus de formation enrichis par IA, suivi personnalisé automatique, reporting Qualiopi automatisé. Résultat : capacité à doubler le nombre de sessions sans recruter d'admin.</p>
+                </div>
+            </section>
+
+            <!-- Ce que tu obtiens -->
+            <section class="section" id="livrables">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Checklist.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Ce que tu obtiens concrètement
+                </h2>
+
+                <h3>Audit stratégique complet</h3>
+                <p>Document détaillé qui cartographie ton infrastructure actuelle, identifie les points de friction, et propose une roadmap priorisée. C'est la base de tout.</p>
+
+                <h3>Infrastructure tech repensée</h3>
+                <p>Un écosystème qui tient la route : outils connectés, automations robustes, architecture scalable. Tout est documenté, tout est maintenable.</p>
+
+                <h3>IA intégrée dans tes process clés</h3>
+                <p>L'IA travaille pour toi : génération de contenus, analyse de données, enrichissement automatique, support client, prédictions. Pas du gadget, de la valeur concrète.</p>
+
+                <h3>Formation complète des équipes</h3>
+                <p>Sessions de formation par métier, documentation détaillée avec tutoriels vidéo, accompagnement au changement. Ton équipe comprend, utilise, et devient autonome.</p>
+
+                <h3>Documentation technique et fonctionnelle</h3>
+                <p>Tout est documenté : architecture système, workflows, automations, bonnes pratiques, procédures en cas de problème. Accessible à tous, maintenable dans le temps.</p>
+
+                <h3>6 mois de support prioritaire</h3>
+                <p>Hotline dédiée, appels de suivi mensuels, corrections incluses, optimisations comprises. Si quelque chose ne va pas, on corrige. Si tu veux ajuster, on ajuste.</p>
+
+                <h3>Accès long terme</h3>
+                <p>Après les 6 mois, tu as un accès prioritaire pour toute évolution future, avec un tarif préférentiel réservé aux clients Expansion.</p>
+            </section>
+
+            <!-- Pour qui -->
+            <section class="section" id="pour-qui">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/wired-outline-458-goal-target-hover-hit.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Pour qui c'est fait
+                </h2>
+
+                <p>Expansion est conçu pour les entreprises en croissance qui veulent se donner les moyens de scaler sans tout casser.</p>
+
+                <h3>Tu es au bon endroit si :</h3>
+                <ul>
+                    <li>Tu as entre 10 et 50 personnes dans ton équipe</li>
+                    <li>Tu veux passer à l'échelle supérieure (doubler ton CA, ton équipe, ou tes clients)</li>
+                    <li>Ton infrastructure tech actuelle est devenue un frein identifié</li>
+                    <li>Tu es prêt à investir dans une transformation complète (pas un patch)</li>
+                    <li>Tu veux intégrer l'IA de façon intelligente, pas juste tester des gadgets</li>
+                    <li>Tu es basé dans le Nord, en région parisienne ou lyonnaise (déplacements sur place)</li>
+                </ul>
+
+                <h3>Expansion n'est pas fait pour toi si :</h3>
+                <ul>
+                    <li>Tu cherches juste à automatiser quelques tâches (va voir <a href="offre-reset.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Reset</a> ou <a href="offre-flow.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Flow</a>)</li>
+                    <li>Tu n'es pas prêt à impliquer tes équipes dans la transformation</li>
+                    <li>Tu cherches une solution miracle qui ne demande aucun effort d'adoption</li>
+                </ul>
+            </section>
+
+            <!-- Les résultats -->
+            <section class="section" id="resultats">
+                <h2>
+                    <span class="icon-inline">
+                        <lottie-player src="icons/Success.json" background="transparent" speed="1"></lottie-player>
+                    </span>
+                    Les résultats attendus
+                </h2>
+
+                <h3>Avant Expansion</h3>
+                <ul>
+                    <li>Infrastructure fragmentée qui ne tient plus face à la croissance</li>
+                    <li>Process manuels ou semi-automatisés qui ne scalent pas</li>
+                    <li>IA non exploitée ou utilisée en mode gadget</li>
+                    <li>Onboarding de nouveaux membres qui prend des semaines</li>
+                    <li>Données éparpillées, pas de vision consolidée</li>
+                    <li>Impossibilité de prévoir ou d'anticiper</li>
+                </ul>
+
+                <h3>Après Expansion</h3>
+                <ul>
+                    <li>Infrastructure moderne, scalable, documentée</li>
+                    <li>Process automatisés qui tournent sans intervention humaine</li>
+                    <li>IA intégrée qui génère de la valeur tous les jours</li>
+                    <li>Onboarding en quelques jours grâce à la documentation et la clarté du système</li>
+                    <li>Vision en temps réel de ton activité</li>
+                    <li>Capacité à scaler sans multiplier les effectifs proportionnellement</li>
+                </ul>
+
+                <div class="info-box">
+                    <div class="info-box-title">L'impact réel d'Expansion</div>
+                    <p>Ce n'est pas juste du gain de temps. C'est la capacité à passer à l'échelle supérieure sans que ton infrastructure devienne un boulet. C'est pouvoir embaucher sans que l'onboarding devienne un cauchemar. C'est exploiter l'IA là où elle apporte de la valeur, pas juste pour faire joli. C'est donner à ton équipe les outils pour se concentrer sur ce qui compte : créer de la valeur pour vos clients.</p>
+                </div>
+
+                <div class="cta-inline">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA final -->
+            <section class="cta-section section" id="contact">
+                <img src="icons/Logo.svg" alt="bigxbang" style="width: auto; height: 180px; margin-bottom: 40px; filter: drop-shadow(0 10px 32px rgba(48, 110, 232, 0.25));">
+                <p class="subtitle">On automatise les tâches répétitives pour libérer ce qui fait de toi un humain : penser, créer, décider.</p>
+
+                <div class="cta-buttons">
+                    <a href="https://calendar.app.google/qk7pa13Mu3fP3ex16" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-arrow" aria-hidden="true">→</span>
+                        <span class="btn-text">Je contacte</span>
+                    </a>
+                    <a href="https://www.bigxbang.studio" class="btn btn-secondary">
+                        <span class="btn-text">Retour à l'accueil</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lottieIcons = document.querySelectorAll('lottie-player');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const supportsIntersectionObserver = 'IntersectionObserver' in window;
+
+            lottieIcons.forEach(icon => {
+                icon.removeAttribute('loop');
+                icon.removeAttribute('autoplay');
+                if (typeof icon.load === 'function') {
+                    icon.load(icon.src);
+                }
+                if (typeof icon.stop === 'function') {
+                    icon.stop();
+                }
+            });
+
+            const cardIcons = document.querySelectorAll('.pillar-card lottie-player');
+            cardIcons.forEach(icon => {
+                const card = icon.closest('.pillar-card');
+                if (!card) return;
+
+                const startAnimation = () => {
+                    icon.stop();
+                    icon.play();
+                };
+
+                const resetAnimation = () => {
+                    icon.stop();
+                    if (typeof icon.seek === 'function') {
+                        icon.seek('0');
+                    }
+                };
+
+                card.addEventListener('mouseenter', startAnimation);
+                card.addEventListener('mouseleave', resetAnimation);
+                card.addEventListener('focusin', startAnimation);
+                card.addEventListener('focusout', resetAnimation);
+            });
+
+            if (prefersReducedMotion || !supportsIntersectionObserver) {
+                return;
+            }
+
+            const iconsToObserve = Array.from(lottieIcons).filter(icon => !icon.closest('.pillar-card'));
+
+            const iconObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const player = entry.target;
+                        player.play();
+                        observer.unobserve(player);
+                    }
+                });
+            }, {
+                threshold: 0.6,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            iconsToObserve.forEach(icon => iconObserver.observe(icon));
+        });
+
+        // Parallax subtil sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollY = window.scrollY;
+
+            if (header && scrollY < 500) {
+                header.style.transform = `translateY(${scrollY * 0.3}px)`;
+                header.style.opacity = 1 - (scrollY / 500);
+            }
+        });
+    </script>
+</body>
+</html>
